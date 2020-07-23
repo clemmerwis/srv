@@ -2,20 +2,24 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 html, body {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+}
 
 html {
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section, div {
-  display: block; }
+  display: block;
+}
 
 body {
   margin: 0;
@@ -25,20 +29,25 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+}
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0; }
+  margin: 0;
+}
 
 p {
-  margin: 0; }
+  margin: 0;
+}
 
 a {
   text-decoration: none;
-  color: inherit; }
+  color: inherit;
+}
 
 .header-container {
-  background: rgba(0, 36, 72, 0.7); }
+  background: rgba(0, 36, 72, 0.7);
+}
 
 .site-header {
   max-width: 1400px;
@@ -47,24 +56,37 @@ a {
   grid-template-areas: "logo nav";
   grid-template-columns: minmax(100px, auto) minmax(auto, 1fr);
   grid-column-gap: 5%;
-  color: white; }
-  .site-header .logo {
-    grid-area: logo; }
-  .site-header .main-nav {
-    grid-area: nav;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-end; }
-    .site-header .main-nav .nav-item {
-      margin-right: 5%;
-      border-bottom: 2px solid transparent; }
-      .site-header .main-nav .nav-item:hover {
-        border-color: #f05123 !important; }
-    .site-header .main-nav:last-child {
-      padding-right: 0; }
+  color: white;
+}
+
+.site-header .logo {
+  grid-area: logo;
+}
+
+.site-header .main-nav {
+  grid-area: nav;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.site-header .main-nav .nav-item {
+  margin-right: 5%;
+  border-bottom: 2px solid transparent;
+}
+
+.site-header .main-nav .nav-item:hover {
+  border-color: #f05123 !important;
+}
+
+.site-header .main-nav:last-child {
+  padding-right: 0;
+}
 
 .site-main {
-  background-color: #fdfdfd; }
+  background-color: #fdfdfd;
+}
 
 .site-footer {
-  background-color: bisque; }
+  background-color: bisque;
+}

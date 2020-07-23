@@ -1,26 +1,41 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
-const browserSync = require('browser-sync').create();
+'use strict';
 
-function style() {
-    return gulp.src('./scss/**/*.scss')
-        .pipe(autoprefixer())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./css/'))
-        .pipe(browserSync.stream());
-};
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var browserSync = require('browser-sync').create();
 
-function watch() {
-    browserSync.init({
-        server: {
-            baseDir: './'
-        }
-    });
-    gulp.watch('./scss/**/*.scss', style);
-    gulp.watch('./*.html').on('change', browserSync.reload)
-    gulp.watch('./js/**/*.js').on('change', browserSync.reload)
+var Paths = {
+    TEMPLATE: './',
+    SCSS: 'scss/**/*.scss',
+    CSS: 'css/',
+    HTML: '**/*.html'
 }
 
-exports.style = style;
-exports.watch = watch;
+// Compile sass into CSS
+gulp.task('sass', function() {
+    return gulp.src(Paths.SCSS)
+      .pipe(sass.sync({
+          outputStyle: 'expanded'   //nested, compact, expanded or compressed
+      }).on('error', sass.logError)) 
+      .pipe(gulp.dest(Paths.CSS))
+      .pipe(browserSync.stream());
+});
+
+// Static Server
+gulp.task('serve', function(done) {
+    browserSync.init({
+        server: Paths.TEMPLATE
+    });
+    done();
+});
+
+// watching scss/html files
+gulp.task('watch', function(done) {
+    gulp.watch(Paths.SCSS, gulp.series('sass'));
+    gulp.watch(Paths.SCSS).on('change', browserSync.reload);
+    gulp.watch(Paths.HTML).on('change', browserSync.reload);
+    done();
+});
+
+
+gulp.task('default', gulp.series('sass', 'serve', 'watch'));
