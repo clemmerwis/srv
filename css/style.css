@@ -1,3 +1,30 @@
+.height-800-responsive {
+  min-height: 815px;
+}
+
+@media (max-width: 1199.98px) {
+  .height-800-responsive {
+    height: 600px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .height-800-responsive {
+    height: 400px;
+  }
+}
+
+.fluid-img {
+  width: 100%;
+  height: auto;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 /* Reset */
 *,
 *::before,
@@ -45,6 +72,11 @@ a {
   color: inherit;
 }
 
+.fluid-img {
+  width: 100%;
+  height: auto;
+}
+
 .clearfix::after {
   content: "";
   clear: both;
@@ -52,21 +84,37 @@ a {
 }
 
 .header-container {
-  background: rgba(0, 36, 72, 0.7);
+  width: 100%;
+  color: white;
+  background: url("../image/car-banner-multi.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - 2rem);
 }
 
 .site-header {
-  max-width: 1400px;
-  margin: auto;
+  width: 100%;
+  background: rgba(0, 36, 72, 0.8);
+  padding: 20px 0;
+}
+
+.site-header .header-content {
   display: grid;
   grid-template-areas: "logo nav";
   grid-template-columns: minmax(100px, auto) minmax(auto, 1fr);
   grid-column-gap: 5%;
+  max-width: 1400px;
+  margin: auto;
   color: white;
 }
 
-.site-header .logo {
+.site-header .logo-container {
   grid-area: logo;
+}
+
+.site-header .logo-container .logo {
+  font-size: 28px;
 }
 
 .site-header .main-nav {
@@ -85,7 +133,7 @@ a {
   margin-right: 5%;
   border-bottom: 3px solid transparent;
   font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .site-header .main-nav .nav-item:hover {
@@ -97,8 +145,58 @@ a {
 }
 
 .main-banner {
-  z-index: -100;
-  position: absolute;
+  height: calc(100% - 15rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.main-banner h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.main-banner h1 span {
+  color: #ff4d01;
+}
+
+.main-banner .main-buttons-container {
+  display: inline-flex;
+  padding-top: 50px;
+  justify-content: center;
+}
+
+.main-banner .main-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  text-transform: uppercase;
+  background: #fff;
+  color: #f05123;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 30px;
+  border-radius: 31px;
+  font-family: "Poppins", sans-serif;
+  transition: all 500ms;
+}
+
+.main-banner .main-button:nth-child(2) {
+  margin-left: 5%;
+}
+
+.main-banner .main-button:hover {
+  background: #002448;
+  border: none;
+  outline: none;
+  color: #fff;
 }
 
 .site-main {

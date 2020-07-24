@@ -1,0 +1,27 @@
+.height-800-responsive {
+    min-height: 815px;
+}
+
+
+@media (max-width: 1199.98px) {
+    .height-800-responsive {
+        height: 600px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .height-800-responsive {
+        height: 400px;
+    }
+}
+
+.fluid-img {
+    width: 100%;
+    height: auto;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

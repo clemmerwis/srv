@@ -45,6 +45,11 @@ a {
     color: inherit;
 }
 
+.fluid-img {
+    width: 100%;
+    height: auto;
+}
+
 .clearfix::after {
     content: "";
     clear: both;

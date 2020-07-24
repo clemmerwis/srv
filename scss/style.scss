@@ -1,4 +1,5 @@
 @import "vars";
+@import "helpers";
 @import "mixin";
 @import "reset";
 
@@ -8,18 +9,34 @@
 // }
 
 .header-container {
-    background: rgba($secondary, 0.7);
-}
-.site-header {
-    max-width: 1400px;
-    margin: auto;
-    display: grid;
-    grid-template-areas: "logo nav";
-    grid-template-columns: minmax(100px, auto) minmax(auto, 1fr);
-    grid-column-gap: 5%;
+    // position: fixed;
+    width: 100%;
     color: white;
-    .logo {
+    background: url("../image/car-banner-multi.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100vh - 2rem);
+}
+
+.site-header {
+    width: 100%;
+    background: rgba($secondary, 0.8);
+    padding: 20px 0;
+    .header-content {
+        display: grid;
+        grid-template-areas: "logo nav";
+        grid-template-columns: minmax(100px, auto) minmax(auto, 1fr);
+        grid-column-gap: 5%;
+        max-width: 1400px;
+        margin: auto;
+        color: white;
+    }
+    .logo-container {
         grid-area: logo;
+        .logo {
+            font-size: 28px;
+        }
     }
     .main-nav {
         grid-area: nav;
@@ -28,28 +45,71 @@
         justify-content: flex-end;
         .nav-item {
             text-transform: uppercase; 
-                padding: 5px 0;
-                line-height: 1;
-                transition: .3s;
-                font-size: 13px;
-                margin-right: 5%;
-                border-bottom: 3px solid transparent;
-                font-weight: 600;
-                font-family: 'Montserrat', sans-serif;
-                @include hover() {
-                    border-color: $primary !important;
-                }
+            padding: 5px 0;
+            line-height: 1;
+            transition: .3s;
+            font-size: 13px;
+            margin-right: 5%;
+            border-bottom: 3px solid transparent;
+            font-weight: 600;
+            font-family: $primaryFont;
+            @include hover() {
+                border-color: $primary !important;
+            }
         }
         &:last-child {
             padding-right: 0;
         }
-    }
+    }    
 }
 .main-banner {
-    z-index: -100;
-    position: absolute;
+    height: calc(100% - 15rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    max-width: 1400px;
+    margin: auto;
+    h1 {
+        font-family: $primaryFont;
+        font-weight: 800;
+        font-size: 60px;
+        line-height: 1.2;
+        text-align: center;
+        span {
+            color: $primBright;
+        }
+    }
+    .main-buttons-container {
+        display: inline-flex;
+        padding-top: 50px;
+        justify-content: center;
+    }
+    .main-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        text-transform: uppercase;
+        background: #fff;
+        color: $primary;
+        font-weight: bold;
+        font-size: 20px;
+        padding: 10px 30px;
+        border-radius: 31px;
+        font-family: $secondaryFont;
+        transition: all 500ms;
+        &:nth-child(2) {
+            margin-left: 5%;
+        }
+        @include hover() {
+            background: #002448;
+            border: none;
+            outline: none;
+            color: #fff;
+        }
+    }
 }
-
 
 .site-main {
     background-color: #fdfdfd;
