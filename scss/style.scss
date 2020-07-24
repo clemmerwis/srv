@@ -3,6 +3,10 @@
 @import "reset";
 
 // Structure
+// .home-page .page-container {
+//     background: url("../image/car-right-bg.jpg");
+// }
+
 .header-container {
     background: rgba($secondary, 0.7);
 }
@@ -23,8 +27,15 @@
         align-items: center;
         justify-content: flex-end;
         .nav-item {
+            text-transform: uppercase; 
+                padding: 5px 0;
+                line-height: 1;
+                transition: .3s;
+                font-size: 13px;
                 margin-right: 5%;
-                border-bottom: 2px solid transparent;
+                border-bottom: 3px solid transparent;
+                font-weight: 600;
+                font-family: 'Montserrat', sans-serif;
                 @include hover() {
                     border-color: $primary !important;
                 }
@@ -34,6 +45,11 @@
         }
     }
 }
+.main-banner {
+    z-index: -100;
+    position: absolute;
+}
+
 
 .site-main {
     background-color: #fdfdfd;

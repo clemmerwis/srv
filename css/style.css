@@ -45,6 +45,12 @@ a {
   color: inherit;
 }
 
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 .header-container {
   background: rgba(0, 36, 72, 0.7);
 }
@@ -71,8 +77,15 @@ a {
 }
 
 .site-header .main-nav .nav-item {
+  text-transform: uppercase;
+  padding: 5px 0;
+  line-height: 1;
+  transition: .3s;
+  font-size: 13px;
   margin-right: 5%;
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .site-header .main-nav .nav-item:hover {
@@ -81,6 +94,11 @@ a {
 
 .site-header .main-nav:last-child {
   padding-right: 0;
+}
+
+.main-banner {
+  z-index: -100;
+  position: absolute;
 }
 
 .site-main {
